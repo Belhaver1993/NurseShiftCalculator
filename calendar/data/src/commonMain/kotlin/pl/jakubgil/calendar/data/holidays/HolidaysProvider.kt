@@ -2,9 +2,7 @@ package pl.jakubgil.calendar.data.holidays
 
 import pl.jakubgil.calendar.data.holidays.model.Holiday
 
-internal class HolidaysProvider(
-    private val holidayFileReader: HolidayFileReader,
-) {
+internal class HolidaysProvider(private val holidayFileReader: HolidayFileReader) {
     private val cachedHolidays: List<Holiday>? = null
 
     suspend fun provide(): List<Holiday> {
@@ -18,5 +16,4 @@ internal class HolidaysProvider(
     private companion object {
         private const val TAG = "HolidaysProvider"
     }
-
 }

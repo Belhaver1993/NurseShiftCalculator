@@ -7,7 +7,7 @@ import pl.jakubgil.calendar.domain.di.calendarDomainModule
 val nurseShiftCalculatorModules = listOf(
     appModule,
     calendarDomainModule,
-    calendarDataModule
+    calendarDataModule,
 )
 
 @Composable

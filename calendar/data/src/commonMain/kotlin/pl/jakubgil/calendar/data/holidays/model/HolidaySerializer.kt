@@ -21,7 +21,7 @@ class HolidaySerializer : KSerializer<Holiday> {
     }
 
     override fun serialize(encoder: Encoder, value: Holiday) = throw UnsupportedOperationException(
-        "Serialization is not supported, only deserialization"
+        "Serialization is not supported, only deserialization",
     )
 
     override fun deserialize(decoder: Decoder): Holiday {
@@ -40,5 +40,4 @@ class HolidaySerializer : KSerializer<Holiday> {
 
         return Holiday(year, month, day, name ?: "")
     }
-
 }

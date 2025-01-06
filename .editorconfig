@@ -1,0 +1,30 @@
+root=true
+
+[*.{kt,kts}]
+ktlint_code_style = intellij_idea
+max_line_length=140
+ktlint_standard_package-name = disabled
+ktlint_standard_filename = disabled
+ktlint_standard_blank-line-before-declaration = disabled
+ktlint_standard_context-receiver-wrapping = disabled
+ktlint_standard_discouraged-comment-location = disabled
+ktlint_standard_enum-wrapping = disabled
+ktlint_standard_function-naming = disabled
+ktlint_standard_function-signature = disabled
+ktlint_standard_if-else-bracing = disabled
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_standard_if-else-wrapping = disabled
+ktlint_standard_no-blank-line-in-list = disabled
+ktlint_standard_no-consecutive-comments = disabled
+ktlint_standard_no-empty-file = disabled
+ktlint_standard_no-empty-first-line-in-class-body = disabled
+ktlint_standard_no-single-line-block-comment = disabled
+ktlint_standard_parameter-list-spacing = disabled
+ktlint_standard_property-naming = disabled
+ktlint_standard_statement-wrapping = disabled
+ktlint_standard_string-template-indent = disabled
+ktlint_standard_try-catch-finally-spacing = disabled
+ktlint_standard_type-argument-list-spacing = disabled
+ktlint_standard_type-parameter-list-spacing = disabled
+ktlint_standard_unnecessary-parentheses-before-trailing-lambda = disabled
+ktlint_standard_backing-property-naming = disabled

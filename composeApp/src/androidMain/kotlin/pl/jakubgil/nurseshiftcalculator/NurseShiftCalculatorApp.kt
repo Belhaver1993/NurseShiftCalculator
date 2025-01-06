@@ -8,11 +8,12 @@ import org.koin.dsl.KoinAppDeclaration
 import pl.jakubgil.nurseshiftcalculator.di.nurseShiftCalculatorModules
 
 @OptIn(KoinExperimentalAPI::class)
-class NurseShiftCalculatorApp: Application(), KoinStartup {
+class NurseShiftCalculatorApp :
+    Application(),
+    KoinStartup {
 
     override fun onKoinStartup(): KoinAppDeclaration = {
         androidContext(this@NurseShiftCalculatorApp)
         modules(nurseShiftCalculatorModules)
     }
-
 }

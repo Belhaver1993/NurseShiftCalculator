@@ -12,9 +12,7 @@ import platform.Foundation.NSString
 import platform.Foundation.NSUTF8StringEncoding
 import platform.Foundation.stringWithContentsOfFile
 
-internal class HolidayFileReaderImpl(
-    private val json: Json,
-) : HolidayFileReader {
+internal class HolidayFileReaderImpl(private val json: Json) : HolidayFileReader {
 
     @OptIn(ExperimentalForeignApi::class)
     override suspend fun read(): List<Holiday> = withContext(Dispatchers.IO) {
@@ -28,5 +26,4 @@ internal class HolidayFileReaderImpl(
             listOf()
         }
     }
-
 }

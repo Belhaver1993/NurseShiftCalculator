@@ -5,15 +5,13 @@ import kotlinx.datetime.DayOfWeek
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.plus
 import kotlinx.datetime.until
+import pl.jakubgil.calendar.data.holidays.HolidaysProvider
 import pl.jakubgil.calendar.domain.CalendarRepository
 import pl.jakubgil.calendar.domain.model.Day
 import pl.jakubgil.calendar.domain.model.DayType
 import pl.jakubgil.calendar.domain.model.Month
-import pl.jakubgil.calendar.data.holidays.HolidaysProvider
 
-internal class CalendarRepositoryImpl(
-    private val holidaysProvider: HolidaysProvider,
-) : CalendarRepository {
+internal class CalendarRepositoryImpl(private val holidaysProvider: HolidaysProvider) : CalendarRepository {
 
     override suspend fun createMonth(year: Int, month: Int): Month {
         val holidays = holidaysProvider.provide()
@@ -52,5 +50,4 @@ internal class CalendarRepositoryImpl(
 
     private fun LocalDate.isLeapYear(): Boolean =
         (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
-
 }

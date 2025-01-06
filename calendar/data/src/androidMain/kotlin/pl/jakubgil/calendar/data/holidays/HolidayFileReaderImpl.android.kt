@@ -9,10 +9,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
 import pl.jakubgil.calendar.data.holidays.model.Holiday
 
-internal class HolidayFileReaderImpl(
-    private val json: Json,
-    private val context: Context,
-): HolidayFileReader {
+internal class HolidayFileReaderImpl(private val json: Json, private val context: Context) : HolidayFileReader {
 
     @OptIn(ExperimentalSerializationApi::class)
     override suspend fun read(): List<Holiday> = withContext(Dispatchers.IO) {
