@@ -29,5 +29,7 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":calendar:domain")
 include(":calendar:data")
+include(":calendar:domain")
+include(":calculator:data")
+include(":calculator:domain")
