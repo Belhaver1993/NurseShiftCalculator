@@ -4,6 +4,7 @@ import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.DayOfWeek
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.plus
+import kotlinx.datetime.until
 import pl.jakubgil.calendar.domain.CalendarRepository
 import pl.jakubgil.calendar.domain.model.Day
 import pl.jakubgil.calendar.domain.model.DayType
@@ -17,18 +18,18 @@ internal class CalendarRepositoryImpl(
     override suspend fun createMonth(year: Int, month: Int): Month {
         val holidays = holidaysProvider.provide()
         var date = LocalDate(year, month, 1)
-        val monthLength = date.month.length(date.isLeapYear())
+        val monthLength = getMonthLength(year, month)
 
         val days = mutableListOf<Day>()
 
         for (i in 1..monthLength) {
             val isHoliday = holidays.any { it.year == date.year && it.month == date.monthNumber && it.day == date.dayOfMonth }
             val dayType = when {
-                isHoliday && date.dayOfWeek.value == DayOfWeek.SUNDAY.value ->
+                isHoliday && date.dayOfWeek == DayOfWeek.SUNDAY ->
                     DayType.HOLIDAY_AND_SUNDAY
                 isHoliday -> DayType.HOLIDAY
-                date.dayOfWeek.value == 6 -> DayType.SATURDAY
-                date.dayOfWeek.value == 7 -> DayType.SUNDAY
+                date.dayOfWeek == DayOfWeek.SATURDAY -> DayType.SATURDAY
+                date.dayOfWeek == DayOfWeek.SUNDAY -> DayType.SUNDAY
                 else -> DayType.WORKDAY
             }
 
@@ -41,6 +42,12 @@ internal class CalendarRepositoryImpl(
             month = month,
             days = days,
         )
+    }
+
+    private fun getMonthLength(year: Int, month: Int): Int {
+        val start = LocalDate(year, month, 1)
+        val end = start.plus(1, DateTimeUnit.MONTH)
+        return start.until(end, DateTimeUnit.DAY)
     }
 
     private fun LocalDate.isLeapYear(): Boolean =

@@ -36,8 +36,15 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.koin.androidx.startup)
         }
         commonMain.dependencies {
+            implementation(project(":calendar:data"))
+            implementation(project(":calendar:domain"))
+
+            implementation(project.dependencies.platform(libs.koin.bom))
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -46,6 +53,9 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.core)
+            implementation(libs.kotlinx.serialization.json)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
