@@ -17,7 +17,7 @@ internal class HolidayFileReaderImpl(private val json: Json) : HolidayFileReader
     @OptIn(ExperimentalForeignApi::class)
     override suspend fun read(): List<Holiday> = withContext(Dispatchers.IO) {
         return@withContext try {
-            val holidayFile = NSBundle.mainBundle.resourcePath + "/compose-resources/" + "assets/holidays_2025_2030.json"
+            val holidayFile = NSBundle.mainBundle.resourcePath + "/resources/" + "assets/holidays_2025_2030.json"
             memScoped {
                 val holidayFileContent = NSString.stringWithContentsOfFile(holidayFile, encoding = NSUTF8StringEncoding, error = null) ?: ""
                 json.decodeFromString<List<Holiday>>(holidayFileContent)

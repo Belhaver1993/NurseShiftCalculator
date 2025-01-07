@@ -23,6 +23,8 @@ kotlinx-serialization-json = "1.8.0-RC"
 kotlinx-serialization-plugin = "2.1.0"
 jetbrainsKotlinJvm = "1.9.24"
 kotlinxCoroutinesCore = "1.10.1"
+lifecycleViewmodelCompose = "2.8.2"
+navigationCompose = "2.8.0-alpha10"
 okio = "3.9.1"
 sqldelight = "2.0.2"
 
@@ -47,12 +49,15 @@ koin-android = { module = "io.insert-koin:koin-android" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
 koin-androidx-startup = { module = "io.insert-koin:koin-androidx-startup" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
+koin-compose-viewmodel-navigation = { module = "io.insert-koin:koin-compose-viewmodel-navigation" }
 koin-core = { module = "io.insert-koin:koin-core" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "androidDriver" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "androidDriver" }
 
