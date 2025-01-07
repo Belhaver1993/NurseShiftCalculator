@@ -43,6 +43,8 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":calendar:data"))
             implementation(project(":calendar:domain"))
+            implementation(project(":database:data"))
+            implementation(project(":database:domain"))
 
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(compose.runtime)

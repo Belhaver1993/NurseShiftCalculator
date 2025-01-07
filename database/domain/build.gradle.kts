@@ -20,7 +20,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "CalculatorData"
+            baseName = "DatabaseDomain"
             isStatic = true
         }
     }
@@ -33,22 +33,20 @@ kotlin {
         androidMain.dependencies {
         }
         commonMain.dependencies {
-            implementation(project(":calculator:domain"))
-            implementation(project(":calendar:domain"))
-
             implementation(project.dependencies.platform(libs.koin.bom))
 
             implementation(libs.koin.core)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.datetime)
         }
         desktopMain.dependencies {
+        }
+        iosMain.dependencies {
         }
     }
 }
 
 android {
-    namespace = "pl.jakubgil.calculator.data"
+    namespace = "pl.jakubgil.database.domain"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

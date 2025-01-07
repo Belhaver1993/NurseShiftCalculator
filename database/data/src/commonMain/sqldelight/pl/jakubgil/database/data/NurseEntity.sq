@@ -1,0 +1,20 @@
+CREATE TABLE nurseEntity (
+    id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    surname TEXT NOT NULL
+);
+
+INSERT INTO nurseEntity (name, surname) VALUES ("Ala", "Kot");
+INSERT INTO nurseEntity (name, surname) VALUES ("Michalina", "Pies");
+INSERT INTO nurseEntity (name, surname) VALUES ("Agata", "Krab");
+INSERT INTO nurseEntity (name, surname) VALUES ("Adrian", "Dzik");
+
+getAllNurses:
+SELECT * FROM nurseEntity;
+
+createNurse:
+INSERT INTO nurseEntity (name, surname) VALUES (?, ?);
+
+deleteNurse:
+DELETE FROM nurseEntity WHERE id = ?;
+

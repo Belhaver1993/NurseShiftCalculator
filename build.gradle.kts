@@ -8,5 +8,5 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinJvm) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.kotlinAndroid) apply false
-    alias(libs.plugins.touchlab.skie) apply false
+    alias(libs.plugins.sqldelight) apply false
 }
