@@ -1,6 +1,6 @@
 package pl.jakubgil.nurse.domain.useCases
 
-import pl.jakubgil.database.domain.NurseDatabaseRepository
+import pl.jakubgil.nurse.domain.NurseDatabaseRepository
 
 class DeleteNurse(private val repository: NurseDatabaseRepository) {
 

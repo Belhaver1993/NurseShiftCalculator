@@ -1,6 +1,6 @@
 package pl.jakubgil.nurse.presentation.list
 
-import pl.jakubgil.database.domain.model.Nurse
+import pl.jakubgil.nurse.domain.model.Nurse
 
 data class NurseListUiState(val nurses: List<NurseUiState>)
 

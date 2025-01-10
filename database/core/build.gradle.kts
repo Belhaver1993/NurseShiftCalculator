@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -20,7 +21,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "NurseDomain"
+            baseName = "DatabaseCore"
             isStatic = true
         }
     }
@@ -31,22 +32,27 @@ kotlin {
         val desktopMain by getting
 
         androidMain.dependencies {
+            implementation(libs.android.driver)
         }
         commonMain.dependencies {
+            implementation(project(":nurse:data"))
+
             implementation(project.dependencies.platform(libs.koin.bom))
 
             implementation(libs.koin.core)
             implementation(libs.kotlinx.coroutines.core)
         }
         desktopMain.dependencies {
+            implementation(libs.sqlite.driver)
         }
         iosMain.dependencies {
+            implementation(libs.native.driver)
         }
     }
 }
 
 android {
-    namespace = "pl.jakubgil.nurse.domain"
+    namespace = "pl.jakubgil.database.core"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -54,5 +60,14 @@ android {
     }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+}
+
+sqldelight {
+    databases {
+        create("NurseShiftCalculatorDatabase") {
+            packageName.set("pl.jakubgil.database.core")
+            dependency(project(":nurse:data"))
+        }
     }
 }

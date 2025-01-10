@@ -40,7 +40,6 @@ kotlin {
             implementation(libs.koin.androidx.startup)
         }
         commonMain.dependencies {
-            implementation(project(":database:domain"))
             implementation(project(":navigation:presentation"))
             implementation(project(":nurse:domain"))
 

@@ -36,6 +36,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(compose.preview)
+
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
@@ -44,9 +45,9 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":calendar:data"))
             implementation(project(":calendar:domain"))
-            implementation(project(":database:data"))
-            implementation(project(":database:domain"))
+            implementation(project(":database:core"))
             implementation(project(":navigation:presentation"))
+            implementation(project(":nurse:data"))
             implementation(project(":nurse:domain"))
             implementation(project(":nurse:presentation"))
 
@@ -68,7 +69,10 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+
             implementation(libs.kotlinx.coroutines.swing)
+        }
+        iosMain.dependencies {
         }
     }
 }
