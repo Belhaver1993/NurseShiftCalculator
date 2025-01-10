@@ -1,4 +1,4 @@
-package pl.jakubgil.nurse.presentation
+package pl.jakubgil.nurse.presentation.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -3,10 +3,11 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 kotlin {
@@ -45,21 +46,25 @@ kotlin {
             implementation(project(":calendar:domain"))
             implementation(project(":database:data"))
             implementation(project(":database:domain"))
+            implementation(project(":navigation:presentation"))
             implementation(project(":nurse:domain"))
             implementation(project(":nurse:presentation"))
 
             implementation(project.dependencies.platform(libs.koin.bom))
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.koin.compose)
             implementation(libs.koin.core)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.navigation.compose)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

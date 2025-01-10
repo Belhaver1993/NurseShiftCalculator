@@ -1,4 +1,4 @@
-package pl.jakubgil.nurse.presentation
+package pl.jakubgil.nurse.presentation.list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -19,15 +19,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import nurseshiftcalculator.nurse.presentation.generated.resources.Res
 import nurseshiftcalculator.nurse.presentation.generated.resources.nurse_add
 import nurseshiftcalculator.nurse.presentation.generated.resources.nurse_delete
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
+import pl.jakubgil.nurse.presentation.create.NurseCreateRoute
 
 @Composable
 fun NurseListScreen(
+    navController: NavController,
     viewModel: NurseListViewModel = koinViewModel(),
 ) {
     val uiState = viewModel.uiState.collectAsState().value
@@ -35,7 +38,7 @@ fun NurseListScreen(
     NurseListScreen(
         uiState = uiState,
         onCreateNurseClick = {
-            // TODO
+            navController.navigate(NurseCreateRoute)
         },
         onDeleteNurseClick = viewModel::deleteNurse,
         modifier = Modifier
@@ -54,17 +57,22 @@ private fun NurseListScreen(
         LazyColumn(modifier = Modifier.fillMaxWidth()) {
             itemsIndexed(uiState.nurses) { index, nurse ->
                 Column(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .animateItem(),
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(8.dp),
                     ) {
                         Text(text = "${index + 1}")
-                        Text(text = "${nurse.name} ${nurse.surname}")
+                        Text(
+                            text = "${nurse.surname} ${nurse.name}",
+                            modifier = Modifier.weight(1f),
+                        )
                         Icon(
                             painter = painterResource(Res.drawable.nurse_delete),
                             contentDescription = "Delete nurse",
@@ -81,6 +89,9 @@ private fun NurseListScreen(
 
         FloatingActionButton(
             onClick = onCreateNurseClick,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(end = 16.dp, bottom = 16.dp),
         ) {
             Icon(
                 painter = painterResource(Res.drawable.nurse_add),

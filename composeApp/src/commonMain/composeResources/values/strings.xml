@@ -1,0 +1,5 @@
+<resources>
+    <string name="top_level_route_shifts_create">Create</string>
+    <string name="top_level_route_shifts_list">List</string>
+    <string name="top_level_route_nurses">Nurses</string>
+</resources>

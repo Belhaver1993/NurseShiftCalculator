@@ -1,0 +1,5 @@
+<resources>
+    <string name="nurse_create_nurse_button">Create nurse</string>
+    <string name="nurse_create_name_hint">Name</string>
+    <string name="nurse_create_surname_hint">Surname</string>
+</resources>

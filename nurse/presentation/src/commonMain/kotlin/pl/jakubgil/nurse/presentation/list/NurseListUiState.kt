@@ -1,4 +1,4 @@
-package pl.jakubgil.nurse.presentation
+package pl.jakubgil.nurse.presentation.list
 
 import pl.jakubgil.database.domain.model.Nurse
 

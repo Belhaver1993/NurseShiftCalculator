@@ -23,7 +23,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "NursePresentation"
+            baseName = "NavigationPresentation"
             isStatic = true
         }
     }
@@ -40,9 +40,6 @@ kotlin {
             implementation(libs.koin.androidx.startup)
         }
         commonMain.dependencies {
-            implementation(project(":database:domain"))
-            implementation(project(":navigation:presentation"))
-            implementation(project(":nurse:domain"))
 
             implementation(project.dependencies.platform(libs.koin.bom))
 
@@ -71,7 +68,7 @@ kotlin {
 }
 
 android {
-    namespace = "pl.jakubgil.nurse.presentation"
+    namespace = "pl.jakubgil.navigation.presentation"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

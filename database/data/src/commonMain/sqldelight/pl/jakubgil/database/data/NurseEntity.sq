@@ -10,7 +10,7 @@ INSERT INTO nurseEntity (name, surname) VALUES ("Agata", "Krab");
 INSERT INTO nurseEntity (name, surname) VALUES ("Adrian", "Dzik");
 
 getAllNurses:
-SELECT * FROM nurseEntity;
+SELECT * FROM nurseEntity ORDER BY surname, name;
 
 createNurse:
 INSERT INTO nurseEntity (name, surname) VALUES (?, ?);
